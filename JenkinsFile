@@ -2,7 +2,9 @@ pipeline {
     agent any
     stages {
         stage('Clone') {
-            git 'https://github.com/Shalds44/shalds'
+            steps{
+                git 'https://github.com/Shalds44/shalds'
+            }
         }
         stage('Build and Run with Docker Compose') {
             steps {

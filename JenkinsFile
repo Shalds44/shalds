@@ -1,0 +1,18 @@
+node {
+    stage('Clone') {
+        git 'https://github.com/Shalds44/shalds'
+    }
+    stage('build') {
+        nodejs('NodeJs') {
+            sh '''
+            npm i
+            npm run build
+            '''
+        }    
+    }
+    stage("run") {
+        nodejs('NodeJs') {
+            sh 'ls'
+        }
+    }
+}

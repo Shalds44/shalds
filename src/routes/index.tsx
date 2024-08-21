@@ -4,9 +4,9 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 export default component$(() => {
   return (
     <>
-      <h1>Hi 👋</h1>
+      <h1>Salut 👋</h1>
       <div>
-        Can't wait to see what you build with qwik!
+        Bienvenue sur mon site en qwik
         <br />
         Happy coding.
       </div>

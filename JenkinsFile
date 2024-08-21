@@ -1,15 +1,11 @@
-pipeline {
-    agent any
-    stages {
-        stage('Clone') {
-            steps{
-                git 'https://github.com/Shalds44/shalds'
-            }
-        }
-        stage('Build and Run with Docker Compose') {
-            steps {
-                sh 'docker compose up --build -d'
-            }
-        }
+node{
+    stage('Clone'){
+        git 'https://github.com/Shalds44/shalds'
+    }
+    def img = stage('Build'){
+        docker.build("Dockerfile")
+    }
+    stage('Run'){
+        img.withRun("qwikapp -p 3000:3000")
     }
 }

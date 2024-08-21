@@ -8,7 +8,7 @@ export default component$(() => {
       <div>
         Bienvenue sur mon site en qwik
         <br />
-        Happy coding.
+        Déploiement continu qui fonctionne
       </div>
     </>
   );

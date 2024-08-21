@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("path"){
             steps{
-                @docker.Image.build("Dockerfile")
+                def qwikimage = docker.build("qwikimage")
             }
         }
     }

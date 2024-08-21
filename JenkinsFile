@@ -1,18 +1,21 @@
 node {
-    stage('Clone') {
-        git 'https://github.com/Shalds44/shalds'
-    }
-    stage('build') {
-        nodejs('NodeJs') {
-            sh '''
-            npm i
-            npm run build
-            '''
-        }    
-    }
-    stage("run") {
-        nodejs('NodeJs') {
-            sh 'ls'
+    stages{
+        stage('Clone') {
+            git 'https://github.com/Shalds44/shalds'
+        }
+        stage('Build and Run with Docker Compose') {
+            steps {
+                script {
+                    // Assurez-vous que vous êtes dans le répertoire où se trouve le docker-compose.yml
+                    dir('.') {
+                        // Optionnel : Nettoyage des conteneurs précédents
+                        sh 'docker-compose down'
+
+                        // Construire et exécuter les services définis dans le docker-compose.yml
+                        sh 'docker-compose up --build -d'
+                    }
+                }
+            }
         }
     }
 }

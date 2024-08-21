@@ -1,10 +1,14 @@
-node {
-    stage('Clone') {
-        git 'https://github.com/Shalds44/shalds'
-    }
-    stage('Build and Run with Docker Compose') {
-        steps {
-            sh 'docker-compose up --build -d'
+pipeline {
+    node {
+        stages {
+            stage('Clone') {
+                git 'https://github.com/Shalds44/shalds'
+            }
+            stage('Build and Run with Docker Compose') {
+                steps {
+                    sh 'docker-compose up --build -d'
+                }
+            }
         }
     }
 }

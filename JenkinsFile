@@ -1,14 +1,18 @@
 pipeline {
-    agent { dockerfile true }
+    agent any
     stages {
-        stage('clone') {
-            steps {
-                sh 'ls'
+        stage('Clone') {
+            steps{
+                git 'https://github.com/Shalds44/shalds'
             }
         }
     }
+}
+
+pipeline {
+    agent { dockerfile true }
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
                 sh 'node --version'
                 sh 'svn --version'

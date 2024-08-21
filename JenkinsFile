@@ -1,11 +1,11 @@
-node{
-    stage('Clone'){
-        git 'https://github.com/Shalds44/shalds'
-    }
-    def img = stage('Build'){
-        docker.build("Dockerfile")
-    }
-    stage('Run'){
-        img.withRun("qwikapp -p 3000:3000")
+pipeline {
+    agent { dockerfile true }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+                sh 'svn --version'
+            }
+        }
     }
 }

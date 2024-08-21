@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage("path"){
             steps{
-                def qwikimage = docker.build("qwikimage")
+                script {
+                    def qwikimage = docker.build("qwikimage")
+                }
             }
         }
     }

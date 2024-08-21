@@ -1,6 +1,13 @@
 pipeline {
     agent { dockerfile true }
     stages {
+        stage('clone') {
+            steps {
+                sh 'ls'
+            }
+        }
+    }
+    stages {
         stage('Test') {
             steps {
                 sh 'node --version'

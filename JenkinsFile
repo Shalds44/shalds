@@ -6,11 +6,6 @@ pipeline {
                 git 'https://github.com/Shalds44/shalds'
             }
         }
-        stage('Build') {
-            steps {
-                sh 'node --version'
-            }
-        }
     }
 }
 

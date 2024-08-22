@@ -4,21 +4,9 @@ pipeline {
         stage("path"){
             steps{
                 script {
-                    def qwikimage = docker.build("qwikimage")
+                    def qwikimage = docker.build("qwikimage").withRun('-dp 3000:3000')
                 }
             }
         }
     }
 }
-
-// pipeline {
-//     agent { dockerfile true }
-//     stages {
-//         stage('Build') {
-//             steps {
-//                 sh 'node --version'
-//                 sh 'svn --version'
-//             }
-//         }
-//     }
-// }

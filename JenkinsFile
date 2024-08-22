@@ -1,5 +1,6 @@
 node {
-    sh "docker rm -f busy_maxwell"
+    sh "docker rm -f qwikcontainer"
+    
     checkout scm
 
     def customImage = docker.build("qwikimage", ".")

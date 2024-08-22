@@ -1,13 +1,5 @@
-pipeline {
-    agent any
-    stages {
-        stage("path"){
-            steps{
-                script {
-                    qwikimage = docker.build("qwikimage")
-                    qwikimage.run('-dp 3000:3000')
-                }
-            }
-        }
-    }
+node {
+    checkout scm
+
+    docker.build("qwikimage").withRun('-dp 3000:3000')
 }

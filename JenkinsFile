@@ -1,5 +1,5 @@
 node {
     checkout scm
 
-    docker.build("qwikimage").withRun('-dp 3000:3000')
+    docker.image("qwikimage").withRun('-dp 3000:3000')
 }

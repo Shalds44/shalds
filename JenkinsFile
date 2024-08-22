@@ -1,5 +1,6 @@
 node {
     checkout scm
 
-    docker.build("qwikimage", ".").withRun('-dp 3000:3000') 
+    def customImage = docker.build("qwikimage", ".")
+    customImage.run('-p 3000:3000') 
 }

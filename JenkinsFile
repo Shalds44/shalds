@@ -3,6 +3,5 @@ node {
 
     def customImage = docker.build("qwikimage", ".")
     sh "docker rm -f qwikcontainer"
-
     customImage.run('-p 3000:3000 --name qwikcontainer') 
 }

@@ -1,9 +1,11 @@
 version: '3.8'
 
 services:
-  app:
+  qwikapp:
     build:
       context: .
       dockerfile: Dockerfile
+    image: qwikImage
+    container_name: qwikcontainer
     ports:
       - "3000:3000"

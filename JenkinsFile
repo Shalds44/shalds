@@ -1,7 +1,7 @@
 node {
     checkout scm
 
-    sh "docker build -t customImage ."
+    sh "docker compose up --build"
     sh "docker rm -f qwikcontainer"
     sh "docker run -p 3000:3000 --name qwikcontainer"
 }

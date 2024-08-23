@@ -1,7 +1,9 @@
 node {
+    
     checkout scm
 
-    sh "docker compose build"
+    def customImage = docker.build("qwikimage", ".")
     sh "docker rm -f qwikcontainer"
-    sh "docker compose up"
+
+    customImage.run('-p 3000:3000 --name qwikcontainer') 
 }
